@@ -1,117 +1,117 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion'; // For animations
-import Button from './button';
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion"; // For animations
+import Button from "./button";
 
 const Project = () => {
-    const [isVisible, setIsVisible] = useState({});
+  const [isVisible, setIsVisible] = useState({});
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const windowHeight = window.innerHeight;
-            const projectSections = document.querySelectorAll('.project-section');
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const projectSections = document.querySelectorAll(".project-section");
 
-            projectSections.forEach(section => {
-                const sectionTop = section.getBoundingClientRect().top;
-                setIsVisible(prevState => ({
-                    ...prevState,
-                    [section.id]: sectionTop < windowHeight
-                }));
-            });
-        };
+      projectSections.forEach((section) => {
+        const sectionTop = section.getBoundingClientRect().top;
+        setIsVisible((prevState) => ({
+          ...prevState,
+          [section.id]: sectionTop < windowHeight,
+        }));
+      });
+    };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
+  const contents = [
+    {
+      pname: "Lorem Ipsum Project",
+      description:
+        "This project aims to generate dummy text for various purposes using the classic Lorem Ipsum text as a base.",
+      image: '<img src="https://example.com/image.jpg" alt="Project Image">',
+    },
+    {
+      pname: "Lorem Ipsum Project",
+      description:
+        "This project aims to generate dummy text for various purposes using the classic Lorem Ipsum text as a base.",
+      image: '<img src="https://example.com/image.jpg" alt="Project Image">',
+    },
+    {
+      pname: "Lorem Ipsum Project",
+      description:
+        "This project aims to generate dummy text for various purposes using the classic Lorem Ipsum text as a base.",
+      image: '<img src="https://example.com/image.jpg" alt="Project Image">',
+    },
+    {
+      pname: "Lorem Ipsum Project",
+      description:
+        "This project aims to generate dummy text for various purposes using the classic Lorem Ipsum text as a base.",
+      image: '<img src="https://example.com/image.jpg" alt="Project Image">',
+    },
+    {
+      pname: "Lorem Ipsum Project",
+      description:
+        "This project aims to generate dummy text for various purposes using the classic Lorem Ipsum text as a base.",
+      image: '<img src="https://example.com/image.jpg" alt="Project Image">',
+    },
+  ];
+
+  const projectComponent = (index, pr) => {
+    const isEven = index % 2 === 0;
+  
     return (
-        <>
-            <div id='projects' className="flex justify-center my-5 lg:py-8">
-                <div className="flex  items-center">
-                    <span className="w-24 h-[2px] bg-[#1a1443]"></span>
-                    <span className="bg-[#3889db] w-fit text-white p-2 px-5 text-xl rounded-md">
-                        Projects
-                    </span>
-                    <span className="w-24 h-[2px] bg-[#3fc6ff]"></span>
-                </div>
-            </div>
-            <div className='flex ml-20 mt-10 mr-12 gap-20'>
-                <div className="flex-initial w-1/2  flex justify-center project-section" id="project-section-1">
-                    <motion.div
-                        className="flex flex-col md:flex-row items-center justify-center mb-8"
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: isVisible['project-section-1'] ? 1 : 0, x: isVisible['project-section-1'] ? 0 : -100 }}
-                        transition={{ delay: isVisible['project-section-1'] ? 0.5 : 0 }}
-                    >
-                        <img src='assets/images/nichub.png' alt="Project" className="w-full h-auto " />
-                    </motion.div>
-                </div>
-
-                <div className=" flex flex-initial w-1/2 items-start text-start rounded-lg">
-                    <motion.div
-                        className="flex flex-col p-4  bg-blue-200 w-full"
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: isVisible['project-section-1'] ? 1 : 0, x: isVisible['project-section-1'] ? 0 : 100 }}
-                        transition={{ delay: isVisible['project-section-1'] ? 0.5 : 0 }}
-                    >
-                        <div className="text-2xl font-bold mb-2 self-start">
-                            <h6>Shopit</h6>
-                        </div>
-                        <div className='font-sans text-xl'>
-                            I built this.
-                        </div>
-                        <div class="flex gap-x-10 mt-5">
-                            <div className='inline-block'>
-                                <span className='next-js-button bg-sky-600 p-2 text-white font-bold'>ReactJS</span>
-                            </div>
-                        </div>
-                        <div className='mt-10 gap-20'>
-                            <Button text="VISIT SITE" icon="fa-solid fa-square-arrow-up-right" />
-                            <Button text="VIEW CODE" icon="fa-solid fa-square-arrow-up-right" />
-                        </div>
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* Second project */}
-            <div className='flex ml-20 mt-20 mr-12 gap-20'>
-                <div className=" flex flex-initial w-1/2  items-start text-start rounded-lg">
-                    <motion.div
-                        className="flex flex-col p-4 bg-blue-200 w-full"
-                        initial={{ opacity: 0, x: 100 }}
-                        animate={{ opacity: isVisible['project-section-2'] ? 1 : 0, x: isVisible['project-section-2'] ? 0 : 100 }}
-                        transition={{ delay: isVisible['project-section-2'] ? 0.5 : 0 }}
-                    >
-                        <div className="text-2xl font-bold mb-2 self-start">
-                            <h6>Shopit</h6>
-                        </div>
-                        <div className='font-sans text-xl'>
-                            I built this.
-                        </div>
-                        <div class="flex gap-x-10 mt-5">
-                            <div className='inline-block'>
-                                <span className='next-js-button bg-sky-600 p-2 text-white font-bold'>ReactJS</span>
-                            </div>
-                        </div>
-                        <div className='mt-10 gap-20'>
-                            <Button text="VISIT SITE" icon="fa-solid fa-square-arrow-up-right" />
-                            <Button text="VIEW CODE" icon="fa-solid fa-square-arrow-up-right" />
-                        </div>
-                    </motion.div>
-                </div>
-
-                <div className="flex-initial w-1/2  flex justify-center project-section" id="project-section-2">
-                    <motion.div
-                        className="flex flex-col md:flex-row items-center justify-center mb-8"
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: isVisible['project-section-2'] ? 1 : 0, x: isVisible['project-section-2'] ? 0 : -100 }}
-                        transition={{ delay: isVisible['project-section-2'] ? 0.5 : 0 }}
-                    >
-                        <img src='assets/images/nichub.png' alt="Project" className="w-full h-auto " />
-                    </motion.div>
-                </div>
-            </div>
-        </>
+      <div data-aos-delay={index*400} data-aos={index%2===0?"fade-right":"fade-left"} key={index} className="flex space-x-12 p-16 ">
+  
+        {/* Left component */}
+        <div
+       
+          className={`flex-initial w-1/2 flex justify-center project-section ${
+            isEven ? "" : "order-2"
+          }`}
+          id={`project-section-${index}`}
+        >
+          <img
+            src="assets/images/nichub.png"
+            alt="Project"
+            className="w-full h-auto"
+          />
+        </div>
+  
+        {/* Right component */}
+        <div
+        
+          className={`w-1/2 items-start text-start rounded-lg ${
+            isEven ? "order-2" : ""
+          }`}
+        >
+          <h2 className="text-[1.25rem] font-semibold">{pr.pname}</h2>
+          <h3 className="text-[1rem] font-thin">{pr.description}</h3>
+        </div>
+      </div>
     );
+  };
+  
+
+  return (
+    <section>
+      <div id="project" className="flex pt-16 justify-center my-5 lg:py-8">
+        <div className="flex items-center">
+          <span className="w-24 h-[2px] bg-[#1a1443]"></span>
+          <span className="bg-[#3889db] w-fit text-white p-2 px-5 text-xl rounded-md">
+            Projects
+          </span>
+          <span className="w-24 h-[2px] bg-[#3fc6ff]"></span>
+        </div>
+      </div>
+      {contents.map((pr, index) => (
+        projectComponent(index,pr)
+    
+  
+      ))}
+
+      {/* Second project */}
+    </section>
+  );
 };
 
 export default Project;

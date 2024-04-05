@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from 'react';
-import './App.css';
 import Home from './components/home';
 import Projects from './components/projects';
 import Skills from './components/skills';
@@ -20,7 +19,7 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="">
+    <div >
 
       {loading ? (
         <div className='text-4xl h-screen bg-customBlue flex justify-center items-center '>
@@ -29,7 +28,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <div className='bg-red-400 h-screen w-screen'>
+        <div >
           <Home />
           <Navbar/>
           <Projects />
