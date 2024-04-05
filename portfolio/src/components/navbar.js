@@ -9,9 +9,12 @@ const Navbar = () => {
         </div>
 
         <div className='flex justify-between gap-x-10 items-center mr-10'>
-            <h5 className='text-black font-semibold text-2xl'>Skills</h5>
-            <h5 className='text-black font-semibold text-2xl'>Projects</h5>
-            <h5 className='text-black font-semibold text-2xl'>Projects</h5>
+          <a href="skills"><h5 className='text-black font-semibold text-2xl'>Skills</h5></a>
+          <a href="projects"><h5 className='text-black font-semibold text-2xl'>Projects</h5></a>
+          <a href="skills"><h5 className='text-black font-semibold text-2xl'>Skills</h5></a>
+            
+            {/* <h5 className='text-black font-semibold text-2xl'>Projects</h5>
+            <h5 className='text-black font-semibold text-2xl'>Projects</h5> */}
 
         </div>
 

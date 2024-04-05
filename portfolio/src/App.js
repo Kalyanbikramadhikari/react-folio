@@ -15,12 +15,12 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 200);
 
     return () => clearTimeout(timer);
   }, []);
   return (
-    <div className="App">
+    <div className="">
 
       {loading ? (
         <div className='text-4xl h-screen bg-customBlue flex justify-center items-center '>
@@ -29,7 +29,7 @@ function App() {
           </div>
         </div>
       ) : (
-        <div>
+        <div className='bg-red-400 h-screen w-screen'>
           <Home />
           <Navbar/>
           <Projects />
